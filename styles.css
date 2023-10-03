@@ -17,7 +17,7 @@
   
   /* ヘッダー */
   .navbar {
-    background-color: brown;
+    background-color: #d66e09;
   }
   
   .navbar h1 {
@@ -81,7 +81,7 @@
 
   .item-img {
     text-align: center;
-    background-color: rgba(255, 249, 192, 0.8);
+    /*background-color: rgba(255, 249, 192, 0.8);*/
     border-radius: 10px;
     padding-top: 10px;
     margin-bottom: 16px;
