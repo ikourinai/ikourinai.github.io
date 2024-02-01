@@ -1,0 +1,209 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+body {
+	color: #555;
+    font-family: sans-serif;
+    text-align: center;
+}
+p {
+    line-height: 1.7;
+}
+.title {
+    font-family: 'Lobster', cursive;
+    /* font-family: 'Dancing Script', cursive; */
+    font-size: 5rem;
+    margin-bottom: 2rem;
+}
+.container {
+    /* スクロールスナップの設定 */
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+}
+.area {
+    padding: 1rem;
+
+    /* テキストを画面中央に表示 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* スクロールスナップの設定 */
+    scroll-snap-align: start;
+    height: 100vh;
+}
+
+/* 各エリアの背景色 */
+.area:nth-child(even) {
+    background-color: #ffd1da;
+}
+.area:nth-child(odd) {
+    background-color: #fff3d1;
+}
+
+.hero {
+    background-image: url("https://user-images.githubusercontent.com/102784267/233598836-5aff188d-1c15-4721-8fd3-36d671527a45.png");
+    /* background-image: url(); */
+    background-size: cover;  /* 縦横比を保持したまま全画面表示 */
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* color: #ffd1da; */
+}
+.hero p {
+    font-size: 2rem;
+    color: #ffd1da;
+}
+
+.menu {
+    background-image: url("https://user-images.githubusercontent.com/50351871/231342890-2526770f-5e48-4325-bf41-5a997f153d86.jpg");
+    /* background-image: url(https://user-images.githubusercontent.com/50351871/231342887-dd12e884-fa54-4f25-96e7-2a90baa81fdf.jpg); */
+    background-size: cover;  /* 縦横比を保持したまま全画面表示 */
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+}
+.wrapper {
+    background-color: rgba(255, 255, 255, 0.7);
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+.menu-list {
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    padding-left: 10px;
+}
+.menu-list tr {
+    font-size: 1.125rem;
+    margin-bottom: .5rem;
+    line-height: 1.7;
+}
+.menu-list th {
+    font-weight: normal;
+    width: 110px;
+}
+.menu-list td {
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.news {
+    background-image: url("https://user-images.githubusercontent.com/102784267/233591852-5038a6f2-c081-4106-8e9c-73ade640d303.png" );
+    background-repeat: no-repeat;
+    background-size: auto 40%;
+    background-position: 5% 5%;
+}
+.news h1 {
+    color: #ff00ff;
+}
+
+dl {
+    width: 60%;
+    margin: 0 auto;
+}
+.info {
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.info dt {
+    /*font-size: 16px;*/
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;   /* クリックしたときにテキストが青くならないようにする */
+    position: relative;  /* ★ */
+}
+
+.info dt::before {   /* dtの前にマークを付けるために、before疑似要素を使う */
+    content: '★ ';
+}
+
+.info dt::after {
+    content: '+';  /* 開閉できることを示すプラスマークをafter疑似要素で付ける */
+    position: absolute;   /* 右端につけたいので、親要素に★を指定してから */
+    top: 8px;
+    right: 16px;
+    transition: transform .3s;
+}
+
+/* dl直下のdivにappearクラスが付いたら、dtのafter疑似要素のプラスマークを回転させる */
+dl > div.appear dt::after {
+    transform: rotate(45deg);
+}
+
+.info dd {
+    padding: 8px;
+    margin: 0;
+    display: none;   /* 回答は最初かくしておく*/
+}
+
+/* dl直下のdivにappearクラスが付いたら、divの中のddをblockにして表示する */
+dl > div.appear dd {
+    display: block;
+    animation: .3s fadeIn;   /* ddは最初かくれているのでtransformは使えない */
+}
+
+.contact {
+    /* background-image: url("https://user-images.githubusercontent.com/50351871/231342887-dd12e884-fa54-4f25-96e7-2a90baa81fdf.jpg"); */
+    /* background-image: url(https://user-images.githubusercontent.com/50351871/231342869-42e112c7-2f31-43dd-88b8-f9b4b7ac9f19.jpg); */
+    background-image: url("https://user-images.githubusercontent.com/102784267/233598821-f3f54230-227a-4b40-a3cc-26290c252190.png");
+    background-size: cover;  /* 縦横比を保持したまま全画面表示 */
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* color: navy; */
+}
+.store-info {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.store-map {
+    padding: 16px;
+}
+.sns-icon a + a {
+    margin-left: 16px;
+  }
+  footer i:hover {
+    opacity: 0.7;
+  }
+  .bi {
+    font-size: 24px;
+  }
+  .bi-twitter {
+    color: #1da1f2;
+  } 
+  .bi-facebook {
+    color: #1877f2;
+  } 
+  .bi-line {
+    color: #00c300;
+  }
+  .bi-instagram {
+    color: #c13584;
+  }
+ 
+/*
+モバイルサイズ
+================================================ */
+@media (max-width: 700px) {
+    .title {
+        font-size: 4rem;
+    }
+    p {
+        padding: 0 1rem;
+    }
+    .area {
+        padding-top: 12vh;
+    }
+    dl {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .store-map img {
+        width: 200px;
+    }
+}
